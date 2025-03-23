@@ -15,7 +15,7 @@ COLOR_LINEA = "#dcdcda"    # Gris claro
 
 st.markdown(f"""
     <div style="background-color:{COLOR_FONDO}; padding:20px; text-align:center; border-radius:10px;">
-        <img src="{LOGO_URL}" width="1000" style="margin-bottom:10px;">
+        <img src="{LOGO_URL}" width="800" style="margin-bottom:10px;">
         <h1 style="color:{COLOR_TITULO}; margin-bottom:0;">Validación de Certificados</h1>
         <p style="font-size:18px; color:{COLOR_TEXTO}; margin-top:5px;">
             Ingrese su curso y contraseña para validar su certificado en PDF.
