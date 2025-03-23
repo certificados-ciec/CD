@@ -60,7 +60,7 @@ if st.button("✅ Validar"):
             st.markdown(f"""
                 <div style="text-align:center; margin-top:20px;">
                     <a href="{enlace}" target="_blank">
-                        <button style="background-color:{COLOR_BOTON}; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px;">
+                        <button style="background-color:{COLOR_BOTON}; color:{COLOR_TEXTO}; padding:10px 20px; border:none; border-radius:5px; font-size:16px; font-weight:bold; cursor:pointer;">
                             📄 Descargar Certificado
                         </button>
                     </a>
