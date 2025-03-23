@@ -30,7 +30,7 @@ except:
     st.stop()
 
 # 🧾 Interfaz principal
-st.markdown("### 📘 Curso tomado:")
+st.markdown("### 📘 Curso o diplomado tomado:")
 nombre_curso = st.selectbox("", df_cursos["Nombre del Curso o Diplomado"].unique())
 
 st.markdown("### 🔐 Contraseña del certificado:")
@@ -57,7 +57,7 @@ if st.button("✅ Validar certificado"):
                 </a>
             """, unsafe_allow_html=True)
         else:
-            st.error("❌ Contraseña inválida o curso incorrecto.")
+            st.error("❌ Contraseña inválida o verifique si el curso o diplomado es el correcto.")
 
 # 📌 Pie de página
 st.markdown("""
