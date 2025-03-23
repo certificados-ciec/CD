@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(page_title="Validación de Certificados", page_icon="📄", layout="centered")
 
 # PERSONALIZA AQUÍ 🎨
-LOGO_URL = "https://github.com/certificados-ciec/CD/blob/main/Logo.png"  # Reemplaza con tu logo
+LOGO_URL = "LOGO_URL = "https://raw.githubusercontent.com/ciec-uptc/Certificados/main/logo.png"  # Reemplaza con tu logo
 COLOR_PRIMARIO = "#1E88E5"  # Azul institucional
 COLOR_BOTON = "#43A047"     # Verde tipo éxito
 
