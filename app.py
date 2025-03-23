@@ -12,7 +12,7 @@ COLOR_BOTON = "#43A047"     # Verde tipo éxito
 # ENCABEZADO CON LOGO
 st.markdown(f"""
     <div style="text-align:center;">
-        <img src="{LOGO_URL}" width="300">
+        <img src="{LOGO_URL}" width="500">
         <h1 style="color:{COLOR_PRIMARIO}; margin-bottom: 0;">Validación de Certificados</h1>
         <p style="font-size:18px;">Ingrese su curso y contraseña para validar su certificado.</p>
     </div>
