@@ -70,9 +70,9 @@ if st.button("✅ Validar"):
             st.error("❌ Contraseña inválida o curso incorrecto.")
 
 # PIE DE PÁGINA
-st.markdown("""
-    <hr style="margin-top:40px;">
-    <div style="text-align:center; font-size:13px; color:gray;">
-        Aplicación desarrollada para la validación automática de certificados académicos.
+st.markdown(f"""
+    <hr style="margin-top:40px; border-color:{COLOR_LINEA};">
+    <div style="text-align:center; font-size:13px; color:{COLOR_TEXTO};">
+        Aplicación desarrollada por el <strong>CIEC - Facultad de Ciencias UPTC</strong>
     </div>
 """, unsafe_allow_html=True)
