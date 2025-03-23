@@ -10,7 +10,7 @@ st.markdown("Seleccione el curso y digite su contraseña para descargar su certi
 
 # 📥 URL pública de la hoja de cálculo (en formato CSV exportable)
 # Reemplaza con el ID real de tu Google Sheets si cambia
-SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1Uciyv8-Ur611z1wdz38qRBwpviANxWlraaNhg-hb8SM/export?format=csv"
+SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1Uciyv8-Ur611z1wdz38qRBwpviANxWlraaNhg-hb8SM/gviz/tq?tqx=out:csv"
 
 # 📂 Carpeta pública de certificados PDF
 PDF_PUBLIC_FOLDER = "https://drive.google.com/uc?export=download&id="  # Usaremos el ID del archivo más adelante
