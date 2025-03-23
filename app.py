@@ -23,16 +23,6 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-
-# ENCABEZADO CON LOGO
-st.markdown(f"""
-    <div style="text-align:center;">
-        <img src="{LOGO_URL}" width="1000">
-        <h1 style="color:{COLOR_PRIMARIO}; margin-bottom: 0;">Validación de Certificados</h1>
-        <p style="font-size:18px;">Ingrese su curso y contraseña para validar su certificado.</p>
-    </div>
-""", unsafe_allow_html=True)
-
 # URL de hojas de cálculo
 URL_LISTA_CURSOS = "https://docs.google.com/spreadsheets/d/1Uciyv8-Ur611z1wdz38qRBwpviANxWlraaNhg-hb8SM/gviz/tq?tqx=out:csv"
 URL_APROBADOS = "https://docs.google.com/spreadsheets/d/1tcJDdUtLYpXxHab7nPFNd4f910dQ4OdcF0T_s51gVTM/gviz/tq?tqx=out:csv"
