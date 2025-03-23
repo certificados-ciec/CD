@@ -1,22 +1,28 @@
 import streamlit as st
 import pandas as pd
 
-# 🎨 Configuración general
+# CONFIGURACIÓN DE LA APP
 st.set_page_config(page_title="Validación de Certificados", page_icon="📄", layout="centered")
 
-# 🎓 Encabezado con estilo
-st.markdown("""
-    <div style="text-align:center">
-        <h1 style="color:#2c3e50;">🔍 Validación de Certificados</h1>
-        <p style="font-size:18px;">Seleccione su curso e ingrese su contraseña para descargar el certificado en PDF.</p>
+# PERSONALIZA AQUÍ 🎨
+LOGO_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Empty.png/200px-Empty.png"  # Reemplaza con tu logo
+COLOR_PRIMARIO = "#1E88E5"  # Azul institucional
+COLOR_BOTON = "#43A047"     # Verde tipo éxito
+
+# ENCABEZADO CON LOGO
+st.markdown(f"""
+    <div style="text-align:center;">
+        <img src="{LOGO_URL}" width="120">
+        <h1 style="color:{COLOR_PRIMARIO}; margin-bottom: 0;">Validación de Certificados</h1>
+        <p style="font-size:18px;">Ingrese su curso y contraseña para validar su certificado.</p>
     </div>
 """, unsafe_allow_html=True)
 
-# 📄 URLs de las hojas de cálculo
+# URL de hojas de cálculo
 URL_LISTA_CURSOS = "https://docs.google.com/spreadsheets/d/1Uciyv8-Ur611z1wdz38qRBwpviANxWlraaNhg-hb8SM/gviz/tq?tqx=out:csv"
 URL_APROBADOS = "https://docs.google.com/spreadsheets/d/1tcJDdUtLYpXxHab7nPFNd4f910dQ4OdcF0T_s51gVTM/gviz/tq?tqx=out:csv"
 
-# 🔄 Carga de datos con caché
+# Cargar datos
 @st.cache_data
 def cargar_datos():
     df_cursos = pd.read_csv(URL_LISTA_CURSOS, dtype=str).fillna("")
@@ -26,43 +32,42 @@ def cargar_datos():
 try:
     df_cursos, df_aprobados = cargar_datos()
 except:
-    st.error("❌ No se pudo cargar la información. Verifica los enlaces o permisos de las hojas.")
+    st.error("❌ Error al cargar las hojas de cálculo.")
     st.stop()
 
-# 🧾 Interfaz principal
-st.markdown("### 📘 Curso o diplomado tomado:")
-nombre_curso = st.selectbox("", df_cursos["Nombre del Curso o Diplomado"].unique())
+# CURSO Y CONTRASEÑA
+nombre_curso = st.selectbox("📘 Curso tomado", df_cursos["Nombre del Curso o Diplomado"].unique())
+contraseña = st.text_input("🔐 Contraseña", type="password", placeholder="Ingrese su contraseña")
 
-st.markdown("### 🔐 Contraseña del certificado:")
-contraseña = st.text_input("", type="password", placeholder="Ingrese su contraseña aquí")
-
-# 🎯 Botón de validación con estilo
-if st.button("✅ Validar certificado"):
+# BOTÓN DE VALIDACIÓN
+if st.button("✅ Validar"):
     fila_curso = df_cursos[df_cursos["Nombre del Curso o Diplomado"] == nombre_curso]
-
     if fila_curso.empty:
         st.warning("⚠️ Curso no encontrado.")
     else:
         codigo = fila_curso.iloc[0]["Código"]
         nombre_archivo = f"{codigo}_{contraseña}.pdf"
-
         fila_archivo = df_aprobados[df_aprobados["Nombre de Archivo"] == nombre_archivo]
 
         if not fila_archivo.empty:
             enlace = fila_archivo.iloc[0]["Enlace"]
-            st.success("✅ ¡Certificado encontrado!")
+            st.success("✅ Certificado encontrado.")
             st.markdown(f"""
-                <a href="{enlace}" target="_blank" style="text-decoration:none;">
-                    <button style='padding:10px 20px; background-color:#27ae60; color:white; border:none; border-radius:5px; font-size:16px;'>📄 Descargar Certificado</button>
-                </a>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="{enlace}" target="_blank">
+                        <button style="background-color:{COLOR_BOTON}; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px;">
+                            📄 Descargar Certificado
+                        </button>
+                    </a>
+                </div>
             """, unsafe_allow_html=True)
         else:
-            st.error("❌ Contraseña inválida o verifique si el curso o diplomado es el correcto.")
+            st.error("❌ Contraseña inválida o curso incorrecto.")
 
-# 📌 Pie de página
+# PIE DE PÁGINA
 st.markdown("""
-    <hr>
-    <div style="text-align:center; font-size:14px; color:gray;">
-        Aplicación desarrollada para validar certificados digitales.
+    <hr style="margin-top:40px;">
+    <div style="text-align:center; font-size:13px; color:gray;">
+        Aplicación desarrollada para la validación automática de certificados académicos.
     </div>
 """, unsafe_allow_html=True)
