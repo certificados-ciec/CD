@@ -7,7 +7,7 @@ st.set_page_config(page_title="Validación de Certificados", page_icon="📄", l
 # PERSONALIZA AQUÍ 🎨
 LOGO_URL = "https://raw.githubusercontent.com/certificados-ciec/CD/main/Logo.png"  # Reemplaza con tu logo
 COLOR_PRIMARIO = "#f0b124"  # Azul institucional
-COLOR_BOTON = "#000000"     # Verde tipo éxito
+COLOR_BOTON = "#f3d027"     # Verde tipo éxito
 
 # ENCABEZADO CON LOGO
 st.markdown(f"""
