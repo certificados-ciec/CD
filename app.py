@@ -5,9 +5,24 @@ import pandas as pd
 st.set_page_config(page_title="Validación de Certificados", page_icon="📄", layout="centered")
 
 # PERSONALIZA AQUÍ 🎨
-LOGO_URL = "https://raw.githubusercontent.com/certificados-ciec/CD/main/Logo.png"  # Reemplaza con tu logo
-COLOR_PRIMARIO = "#f0b124"  # Azul institucional
-COLOR_BOTON = "#f3d027"     # Verde tipo éxito
+LOGO_URL = "https://raw.githubusercontent.com/certificados-ciec/CD/main/Logo.png"
+
+COLOR_FONDO = "#FFFFFF"
+COLOR_TEXTO = "#000000"
+COLOR_TITULO = "#f0b124"   # Dorado fuerte
+COLOR_BOTON = "#f3d027"    # Dorado claro
+COLOR_LINEA = "#dcdcda"    # Gris claro
+
+st.markdown(f"""
+    <div style="background-color:{COLOR_FONDO}; padding:20px; text-align:center; border-radius:10px;">
+        <img src="{LOGO_URL}" width="200" style="margin-bottom:10px;">
+        <h1 style="color:{COLOR_TITULO}; margin-bottom:0;">Validación de Certificados</h1>
+        <p style="font-size:18px; color:{COLOR_TEXTO}; margin-top:5px;">
+            Ingrese su curso y contraseña para validar su certificado en PDF.
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+
 
 # ENCABEZADO CON LOGO
 st.markdown(f"""
